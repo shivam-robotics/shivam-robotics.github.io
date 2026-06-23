@@ -569,19 +569,28 @@
 
       <div class="project-card reveal">
         <div class="project-num">02 — EMBEDDED SIM</div>
-        <div class="project-title">HC-SR04 Sensor Simulator with Noise Modeling</div>
+        <div class="project-title">HC-SR04 Sensor Simulator with Real-Time Animation</div>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/52RPD3UCx90"
+            title="HC-SR04 Sensor Simulator Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
         <p class="project-desc">
-          Simulated an HC-SR04 ultrasonic sensor with configurable Gaussian noise, temperature
-          compensation, and beam-angle filtering. Real-time distance plots with annotated noise bands;
-          designed as a drop-in sim layer before real hardware Wi-Fi integration.
+          Real-time simulation of HC-SR04 ultrasonic sensor with Gaussian noise modeling, spike injection,
+          and bad reading detection. Dual-panel live animation updating every 50ms —
+          raw readings over time + distribution histogram of valid data. Drop-in sim layer
+          before real ESP32 hardware integration over WiFi UDP.
         </p>
         <div class="tags">
           <span class="tag">Python</span>
           <span class="tag">NumPy</span>
           <span class="tag">Matplotlib</span>
+          <span class="tag">FuncAnimation</span>
           <span class="tag">HC-SR04</span>
         </div>
         <div class="project-links">
+          <a href="https://youtu.be/52RPD3UCx90" target="_blank" class="project-btn project-btn-demo">▶ Watch Demo</a>
           <a href="https://github.com/shivam-robotics" target="_blank" class="project-btn project-btn-code">⌥ View Code</a>
         </div>
       </div>
@@ -781,6 +790,9 @@
     <div class="contact-links">
       <a href="mailto:shivam.robotics637@gmail.com" class="contact-link reveal">
         <span class="icon">✉</span> shivam.robotics637@gmail.com
+      </a>
+      <a href="https://shivam-robotics.github.io" target="_blank" class="contact-link reveal">
+        <span class="icon">🌐</span> shivam-robotics.github.io
       </a>
       <a href="https://github.com/shivam-robotics" target="_blank" class="contact-link reveal">
         <span class="icon">⌥</span> github.com/shivam-robotics
