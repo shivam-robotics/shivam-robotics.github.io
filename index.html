@@ -284,6 +284,15 @@
     border: 1px solid var(--border); aspect-ratio: 16/9; background: #000;
   }
   .project-video iframe { width:100%; height:100%; display:block; border:none; }
+  .project-video img { width:100%; height:100%; display:block; object-fit: contain; background:#0D1117; }
+  .project-placeholder {
+    margin: 14px 0; border-radius: 8px;
+    border: 1px dashed var(--border); aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.02);
+    font-family: 'Space Mono', monospace; font-size: 0.75rem;
+    color: var(--muted); letter-spacing: 1px; text-align: center; padding: 12px;
+  }
   .project-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
   .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 0; }
   .tag {
@@ -305,6 +314,10 @@
   .project-btn-demo:hover { background: rgba(88,166,255,0.2); transform: translateY(-1px); }
   .project-btn-code { background: rgba(63,185,80,0.07); color: var(--accent2); border: 1px solid rgba(63,185,80,0.25); }
   .project-btn-code:hover { background: rgba(63,185,80,0.15); transform: translateY(-1px); }
+  .project-btn-soon {
+    background: rgba(255,255,255,0.03); color: var(--muted);
+    border: 1px solid var(--border); cursor: default;
+  }
 
   /* ── SKILLS ── */
   #skills { background: var(--navy); }
@@ -514,8 +527,9 @@
     </h1>
     <p class="hero-sub">
       B.Tech IT (AI & Robotics) student at <strong>MITS Gwalior</strong> building
-      real robotics systems — from ROS2 pipelines and sensor firmware to flapping-wing UAVs.
-      Targeting <strong>CMU MSROB 2029</strong>.
+      real robotics systems — from fault-tolerant multi-robot task allocation
+      to ROS2-driven embedded hardware products.
+      Targeting <strong>CMU MRSD 2029</strong>.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View Projects ↓</a>
@@ -535,9 +549,9 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Projects Shipped</span></div>
+  <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Projects Shipped</span></div>
   <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">MathWorks Certs</span></div>
-  <div class="stat"><span class="stat-num">2029</span><span class="stat-label">CMU MSROB Target</span></div>
+  <div class="stat"><span class="stat-num">2029</span><span class="stat-label">CMU MRSD Target</span></div>
   <div class="stat"><span class="stat-num">500+</span><span class="stat-label">LinkedIn Connections</span></div>
 </div>
 
@@ -549,7 +563,59 @@
     <div class="projects-grid">
 
       <div class="project-card reveal">
-        <div class="project-num">01 — ROBOTICS</div>
+        <div class="project-num">01 — RESEARCH</div>
+        <div class="project-title">Fault-Tolerant Multi-Drone Task Allocation (ROS2)</div>
+        <!-- Swap this <img> src to your own diagram once it's in your repo, e.g. assets/architecture.png -->
+        <div class="project-video">
+          <img src="assets/architecture.png" alt="System architecture diagram — centralized task manager coordinating two drone controllers via ROS2 actions" />
+        </div>
+        <p class="project-desc">
+          A centralized ROS2 system for multi-drone task allocation with explicit fault handling —
+          distinguishing task-level failures from drone-level failures, and recovering from each
+          differently. Includes a passive Gilbert-Elliott communication degradation model and a
+          custom fault-injection framework (mid-task drone death, startup death, low battery).
+          Evaluated across 250+ runs spanning 7 conditions. Manuscript in preparation for
+          submission to IEEE RA-L.
+        </p>
+        <div class="tags">
+          <span class="tag">ROS2 Humble</span>
+          <span class="tag">Python</span>
+          <span class="tag">Fault Tolerance</span>
+          <span class="tag">Multi-Robot Systems</span>
+          <span class="tag">Custom ROS2 Actions</span>
+        </div>
+        <div class="project-links">
+          <span class="project-btn project-btn-soon">▶ Demo — Coming Soon</span>
+          <span class="project-btn project-btn-soon">⌥ Code — Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">02 — HARDWARE · PRODUCT</div>
+        <div class="project-title">EON — Dual-Mode Autonomous/Manual Rover</div>
+        <div class="project-placeholder">PHOTOS / DEMO VIDEO<br/>COMING SOON</div>
+        <p class="project-desc">
+          A compact (7cm-cube) rover that switches between fully autonomous ROS2-driven navigation
+          and manual control via a custom-built Bluetooth app. Built on ESP32, with ultrasonic
+          obstacle sensing and a planned BME680 sensor for temperature and gas/VOC monitoring —
+          aimed at applications like server-room surveillance and environmental early-warning.
+          Currently the foundation for a personal hardware product line.
+        </p>
+        <div class="tags">
+          <span class="tag">ESP32-S3</span>
+          <span class="tag">ROS2</span>
+          <span class="tag">Embedded C++</span>
+          <span class="tag">Bluetooth</span>
+          <span class="tag">Product Design</span>
+        </div>
+        <div class="project-links">
+          <span class="project-btn project-btn-soon">▶ Demo — Coming Soon</span>
+          <span class="project-btn project-btn-soon">⌥ Code — Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">03 — ROBOTICS</div>
         <div class="project-title">Three-Node ROS2 Sensor Pipeline</div>
         <div class="project-video">
           <iframe src="https://www.youtube.com/embed/WubCwuI7Eas"
@@ -576,7 +642,7 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-num">02 — EMBEDDED SIM</div>
+        <div class="project-num">04 — EMBEDDED SIM</div>
         <div class="project-title">HC-SR04 Sensor Simulator with Real-Time Animation</div>
         <div class="project-video">
           <iframe src="https://www.youtube.com/embed/52RPD3UCx90"
@@ -604,7 +670,7 @@
       </div>
 
       <div class="project-card reveal">
-        <div class="project-num">03 — COMPUTER VISION</div>
+        <div class="project-num">05 — COMPUTER VISION</div>
         <div class="project-title">HSV Real-Time Object Tracker</div>
         <div class="project-video">
           <iframe src="https://www.youtube.com/embed/lu1xaa47ab0"
@@ -629,25 +695,6 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-num">04 — RESEARCH · ONGOING</div>
-        <div class="project-title">Ornithopter (Flapping-Wing UAV) Research</div>
-        <p class="project-desc">
-          Faculty-supervised team research project designing a bio-inspired flapping-wing UAV from first principles.
-          Leading aerodynamic parameter selection, CAD in Fusion 360, and motor-drive circuit design.
-          Targeting inter-college robotics competition.
-        </p>
-        <div class="tags">
-          <span class="tag">Fusion 360</span>
-          <span class="tag">Aeromechanics</span>
-          <span class="tag">Coreless Motors</span>
-          <span class="tag">Research</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/shivam-robotics" target="_blank" class="project-btn project-btn-code">⌥ View Code</a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -665,7 +712,7 @@
           <li>ESP32 / FreeRTOS</li>
           <li>URDF & RViz2</li>
           <li>HC-SR04 Ultrasonic Sensors</li>
-          <li>Coreless DC Motors</li>
+          <li>Custom ROS2 Actions & Interfaces</li>
         </ul>
       </div>
       <div class="skill-category reveal">
@@ -683,18 +730,18 @@
           <li>Ubuntu 22.04 (ARM64 VM)</li>
           <li>Git & GitHub</li>
           <li>MATLAB & Simulink</li>
-          <li>Fusion 360 (CAD)</li>
+          <li>LaTeX (IEEE format)</li>
           <li>macOS (M2 MacBook Air)</li>
         </ul>
       </div>
       <div class="skill-category reveal">
         <div class="skill-category-title">Concepts</div>
         <ul class="skill-list">
+          <li>Multi-Robot Task Allocation</li>
+          <li>Fault-Tolerant Systems Design</li>
           <li>Sensor Fusion & Noise Modeling</li>
           <li>SLAM (fundamentals)</li>
           <li>Computer Vision (HSV segmentation)</li>
-          <li>Robot Kinematics (basics)</li>
-          <li>Bio-inspired Flight Mechanics</li>
         </ul>
       </div>
     </div>
@@ -708,16 +755,16 @@
     <h2 class="section-title">Experience</h2>
     <div class="timeline">
       <div class="timeline-item reveal-left">
-        <div class="timeline-date">DEC 2025 — PRESENT</div>
-        <div class="timeline-role">Team Leader — Ornithopter Research Project</div>
-        <div class="timeline-org">MITS Gwalior · Faculty Supervised</div>
-        <div class="timeline-desc">Leading a research team designing a flapping-wing UAV. Responsible for aerodynamic design, CAD in Fusion 360, and motor-drive electronics. Managing team coordination and research documentation.</div>
+        <div class="timeline-date">AUG 2026 — PRESENT</div>
+        <div class="timeline-role">Independent Hardware Project — EON Rover</div>
+        <div class="timeline-org">Self-directed · MITS Gwalior</div>
+        <div class="timeline-desc">Designing and building a dual-mode (autonomous ROS2 / manual app-controlled) compact rover on ESP32, including sensor integration, power management, and product-level design decisions.</div>
       </div>
       <div class="timeline-item reveal-left">
-        <div class="timeline-date">DEC 2025 — PRESENT</div>
-        <div class="timeline-role">Electrical Team Member</div>
-        <div class="timeline-org">Team Scavengers — EV Go-Kart Club, MITS</div>
-        <div class="timeline-desc">Contributing to electrical system design and wiring harness for the club's competition EV go-kart. Collaborating on motor controller integration and battery management systems.</div>
+        <div class="timeline-date">JUL — OCT 2026</div>
+        <div class="timeline-role">Independent Researcher — Multi-Drone Task Allocation</div>
+        <div class="timeline-org">Self-directed research · MITS Gwalior</div>
+        <div class="timeline-desc">Designed and implemented a centralized ROS2 task-allocation system with fault tolerance and communication-degradation modeling. Collected and analyzed 250+ experimental runs across 7 conditions. Preparing manuscript for submission to IEEE RA-L.</div>
       </div>
       <div class="timeline-item reveal-left">
         <div class="timeline-date">MAY — JUN 2026</div>
@@ -759,14 +806,15 @@
     <div class="about-grid">
       <div class="about-text reveal-left">
         <p>
-          I'm a first-year B.Tech student in <strong>Information Technology (AI & Robotics)</strong> at
+          I'm a second-year B.Tech student in <strong>Information Technology (AI & Robotics)</strong> at
           Madhav Institute of Technology & Science, Gwalior. My work lives at the intersection of
           robotics software and embedded hardware — building things that move, sense, and respond.
         </p>
         <p>
-          From simulating sensor noise in Python to wiring up ROS2 nodes on a Linux VM to leading a
-          flapping-wing UAV research team, I care deeply about understanding systems end-to-end —
-          not just running code, but knowing why it works.
+          From designing a fault-tolerant multi-drone task-allocation system and running it through
+          250+ experimental trials, to building EON — a dual-mode autonomous/manual rover on ESP32 —
+          I care deeply about understanding systems end-to-end, not just running code, but knowing
+          why it works and how it fails.
         </p>
         <p>
           Outside of robotics, I'm into <strong>calisthenics and boxing</strong>, and I'm building
@@ -776,12 +824,12 @@
       <div class="about-goal reveal">
         <div class="about-goal-label">Long-term Target</div>
         <div class="about-goal-text">
-          M.S. Robotics<br/>
+          MRSD<br/>
           Carnegie Mellon University<br/>
           Robotics Institute
         </div>
         <div class="about-goal-sub">Planned entry: Fall 2029 · Building toward this with every project, certification, and research contribution.</div>
-        <div class="cmu-badge">CMU MSROB 2029</div>
+        <div class="cmu-badge">CMU MRSD 2029</div>
       </div>
     </div>
   </div>
@@ -818,7 +866,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="copy">© 2026 Shivam Solanki · Gwalior, India</div>
-  <div class="footer-tag">BUILT FOR CMU MSROB 2029</div>
+  <div class="footer-tag">BUILT FOR CMU MRSD 2029</div>
 </footer>
 
 <script>
